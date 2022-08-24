@@ -1,0 +1,238 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Assets/Button.png" type="Texture" id=1]
+[ext_resource path="res://Assets/ButtonPressed.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ButtonSelected.png" type="Texture" id=3]
+[ext_resource path="res://Font/slkscrb.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Font/new_dynamicfont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Instructions.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Fire Particle.png" type="Texture" id=7]
+[ext_resource path="res://Assets/bomb.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Missile.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Laser.png" type="Texture" id=10]
+[ext_resource path="res://Assets/fireball.png" type="Texture" id=11]
+[ext_resource path="res://Assets/buttonup.png" type="Texture" id=12]
+[ext_resource path="res://analog/big_circle.png" type="Texture" id=13]
+[ext_resource path="res://analog/small_circle.png" type="Texture" id=14]
+
+[sub_resource type="DynamicFont" id=1]
+size = 36
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 29
+font_data = ExtResource( 4 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 63.0
+margin_right = 475.0
+margin_bottom = 796.0
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 334.0
+margin_bottom = 1308.0
+custom_constants/separation = 38
+alignment = 1
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_right = 334.0
+margin_bottom = 37.0
+custom_fonts/font = SubResource( 1 )
+text = "Instructions"
+
+[node name="Label9" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 75.0
+margin_right = 334.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 5 )
+text = "Move your ship with the joystick."
+autowrap = true
+
+[node name="Panel7" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 150.0
+margin_right = 334.0
+margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/Panel7"]
+position = Vector2( 149.73, -3.7562 )
+scale = Vector2( 0.445437, 0.445437 )
+texture = ExtResource( 13 )
+
+[node name="Sprite2" type="Sprite" parent="ScrollContainer/VBoxContainer/Panel7"]
+position = Vector2( 149.73, -3.7562 )
+scale = Vector2( 0.445437, 0.445437 )
+texture = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 188.0
+margin_right = 334.0
+margin_bottom = 265.0
+custom_fonts/font = ExtResource( 5 )
+text = "Shoot enemy spacecraft to earn experience and Spacecoin. Tap anywhere to shoot."
+autowrap = true
+
+[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 303.0
+margin_right = 334.0
+margin_bottom = 303.0
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/Panel"]
+position = Vector2( 152.379, -2.16701 )
+texture = ExtResource( 12 )
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 341.0
+margin_right = 334.0
+margin_bottom = 398.0
+custom_fonts/font = ExtResource( 5 )
+text = "Use Spacecoin in the Shop or use upgrade points in the Upgrade Center."
+autowrap = true
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 436.0
+margin_right = 334.0
+margin_bottom = 473.0
+custom_fonts/font = ExtResource( 5 )
+text = "At first your ship is only equipped with a simple laser."
+autowrap = true
+
+[node name="Panel2" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 511.0
+margin_right = 334.0
+margin_bottom = 511.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/Panel2"]
+position = Vector2( 152.231, 1.7818 )
+rotation = 1.5708
+scale = Vector2( 3.00453, 6.07239 )
+texture = ExtResource( 10 )
+
+[node name="Label4" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 549.0
+margin_right = 334.0
+margin_bottom = 626.0
+custom_fonts/font = ExtResource( 5 )
+text = "The fireball is a more powerful attack. Tap the weapons button to change weapons."
+autowrap = true
+
+[node name="Panel3" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 664.0
+margin_right = 334.0
+margin_bottom = 664.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/Panel3"]
+position = Vector2( 149.258, -2.08307 )
+rotation = 1.5708
+scale = Vector2( 5.75455, 6.07239 )
+texture = ExtResource( 11 )
+
+[node name="Label5" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 702.0
+margin_right = 334.0
+margin_bottom = 759.0
+custom_fonts/font = ExtResource( 5 )
+text = "Hold your fire to charge a more more powerful fireball that rips through enemies."
+autowrap = true
+
+[node name="Panel4" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 797.0
+margin_right = 334.0
+margin_bottom = 797.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/Panel4"]
+position = Vector2( 152.064, 1.2843 )
+rotation = 1.5708
+scale = Vector2( 4.44501, 4.66931 )
+texture = ExtResource( 7 )
+
+[node name="Label6" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 835.0
+margin_right = 334.0
+margin_bottom = 912.0
+custom_fonts/font = ExtResource( 5 )
+text = "Missiles track enemy ships and do a lot of damage. Be careful though, they cost a lot of spacecoin."
+autowrap = true
+
+[node name="Panel5" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 950.0
+margin_right = 334.0
+margin_bottom = 950.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/Panel5"]
+position = Vector2( 149.258, -2.08307 )
+rotation = 1.5708
+scale = Vector2( 5.75455, 6.07239 )
+texture = ExtResource( 9 )
+
+[node name="Label7" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 988.0
+margin_right = 334.0
+margin_bottom = 1085.0
+custom_fonts/font = ExtResource( 5 )
+text = "Bombs clear all enemies on the screen. After buying them, you can swipe horizontally across the screen to use them."
+autowrap = true
+
+[node name="Panel6" type="Panel" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1123.0
+margin_right = 334.0
+margin_bottom = 1123.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="ScrollContainer/VBoxContainer/Panel6"]
+position = Vector2( 149.258, -2.08307 )
+rotation = 1.5708
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+
+[node name="Label8" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1161.0
+margin_right = 334.0
+margin_bottom = 1238.0
+custom_fonts/font = ExtResource( 5 )
+text = "Level up to earn more upgrade points. But the game becomes more difficult as you level."
+autowrap = true
+
+[node name="GoBack" type="TextureButton" parent="ScrollContainer/VBoxContainer"]
+margin_top = 1276.0
+margin_right = 334.0
+margin_bottom = 1308.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/GoBack"]
+margin_left = 20.6362
+margin_right = 181.636
+margin_bottom = 30.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.0196078, 0.141176, 0.27451, 1 )
+text = "Go Back"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="ScrollContainer/VBoxContainer/GoBack" to="." method="_on_GoBack_button_up"]

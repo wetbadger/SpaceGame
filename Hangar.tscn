@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Hangar.gd" type="Script" id=1]
+[ext_resource path="res://Assets/exit2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/launch.png" type="Texture" id=3]
+[ext_resource path="res://Assets/shop.png" type="Texture" id=4]
+[ext_resource path="res://Assets/upgrades.png" type="Texture" id=5]
+[ext_resource path="res://Assets/tv.png" type="Texture" id=6]
+
+[node name="Hangar" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Launch" type="Button" parent="."]
+visible = false
+margin_left = 87.0612
+margin_top = 481.852
+margin_right = 392.061
+margin_bottom = 579.852
+focus_neighbour_top = NodePath("../PurchaseMenu/VBoxContainer/Shield")
+text = "Launch"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Store" type="Button" parent="."]
+visible = false
+margin_left = 88.2072
+margin_top = 323.127
+margin_right = 393.207
+margin_bottom = 437.127
+text = "Store"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ship" type="Button" parent="."]
+visible = false
+margin_left = 87.0852
+margin_top = 168.227
+margin_right = 392.085
+margin_bottom = 282.227
+text = "Ship"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 477.0
+margin_bottom = 798.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Upgrades" type="TextureButton" parent="."]
+margin_left = 24.0
+margin_top = 131.0
+margin_right = 433.0
+margin_bottom = 308.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="upgrades" type="Sprite" parent="Upgrades"]
+position = Vector2( 215.914, 85.0035 )
+texture = ExtResource( 5 )
+
+[node name="Shop" type="TextureButton" parent="."]
+margin_left = 31.0
+margin_top = 310.0
+margin_right = 431.0
+margin_bottom = 491.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="shop" type="Sprite" parent="Shop"]
+position = Vector2( 208.914, 94.0939 )
+texture = ExtResource( 4 )
+
+[node name="Launch2" type="TextureButton" parent="."]
+margin_left = 40.0
+margin_top = 500.0
+margin_right = 437.0
+margin_bottom = 665.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="launch" type="Sprite" parent="Launch2"]
+position = Vector2( 200.056, 80.3974 )
+texture = ExtResource( 3 )
+
+[node name="TextureButton" type="TextureButton" parent="."]
+margin_left = 328.309
+margin_top = 19.0739
+margin_right = 425.309
+margin_bottom = 83.0739
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tv" type="Sprite" parent="."]
+position = Vector2( 106.978, 59.0258 )
+texture = ExtResource( 6 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 63.0
+margin_top = 16.0
+margin_right = 199.0
+margin_bottom = 108.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceCoin" type="Label" parent="VBoxContainer"]
+margin_right = 136.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.0784314, 1, 0, 1 )
+text = "There was an error"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="VBoxContainer"]
+margin_top = 18.0
+margin_right = 136.0
+margin_bottom = 32.0
+custom_colors/font_color = Color( 0.0784314, 1, 0, 1 )
+text = "There was an error"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExperienceNeeded" type="Label" parent="VBoxContainer"]
+margin_top = 36.0
+margin_right = 136.0
+margin_bottom = 50.0
+custom_colors/font_color = Color( 0.0784314, 1, 0, 1 )
+text = "There was an error"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Launch" to="." method="_on_Button_button_down"]
+[connection signal="button_up" from="Upgrades" to="." method="_on_Upgrades_button_up"]
+[connection signal="button_up" from="Shop" to="." method="_on_Shop_button_up"]
+[connection signal="button_up" from="Launch2" to="." method="_on_Launch2_button_up"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_TextureButton_button_up"]

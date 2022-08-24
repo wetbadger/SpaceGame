@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sound/Bomb.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/redlight.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Ship.png" type="Texture" id=5]
+
+[node name="Player" type="Node2D"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 267.946, 586.98 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Ship" type="Sprite" parent="Player" instance=ExtResource( 2 )]
+position = Vector2( -30.6388, -10.4708 )
+scale = Vector2( 1.00069, 1.00069 )
+texture = ExtResource( 5 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( -31.1013, -10.5653 )
+scale = Vector2( 0.512922, 0.471759 )
+polygon = PoolVector2Array( 0.142822, 30.8089, 23.9008, 28.8588, 24.0077, -8.25873, 12.8708, -8.25873, 4.03192, -28.2345, -0.0339355, -32.8307, -4.63013, -27.7042, -13.9993, -8.08197, -24.4291, -8.08197, -24.2523, 29.218 )
+
+[node name="RightCannon" type="Position2D" parent="Player"]
+position = Vector2( -21.0435, -21.5424 )
+
+[node name="LeftCannon" type="Position2D" parent="Player"]
+position = Vector2( -41.0389, -21.5423 )
+
+[node name="Nose" type="Position2D" parent="Player"]
+position = Vector2( -30.7983, -37.4636 )
+
+[node name="RedLight" type="Sprite" parent="Player"]
+visible = false
+position = Vector2( -31.0321, -17.2719 )
+texture = ExtResource( 4 )
+
+[node name="Bomb" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2( -267.946, -586.98 )
+stream = ExtResource( 3 )

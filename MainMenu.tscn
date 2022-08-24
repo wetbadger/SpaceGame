@@ -1,0 +1,257 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Interface/Main.gd" type="Script" id=1]
+[ext_resource path="res://Assets/ButtonSelected.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ButtonPressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Button.png" type="Texture" id=4]
+[ext_resource path="res://Assets/YesNoButtonSelected.png" type="Texture" id=5]
+[ext_resource path="res://Assets/YesNoButton.png" type="Texture" id=6]
+[ext_resource path="res://Assets/YesNoButtonPressed.png" type="Texture" id=7]
+[ext_resource path="res://Font/slkscrb.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Font/slkscrb.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+font_data = ExtResource( 8 )
+
+[node name="Main" type="Node2D"]
+
+[node name="MainMenu" type="Control" parent="."]
+pause_mode = 2
+margin_left = -93.0356
+margin_top = 241.746
+margin_right = -53.0356
+margin_bottom = 281.746
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="MainMenu"]
+margin_left = 209.175
+margin_top = -55.882
+margin_right = 460.175
+margin_bottom = 405.118
+color = Color( 0.592157, 0.592157, 0.592157, 0.313726 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+margin_left = 230.175
+margin_top = -29.882
+margin_right = 438.175
+margin_bottom = 595.118
+custom_constants/separation = 59
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="TextureButton" parent="MainMenu/VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+
+[node name="ResumeLabel" type="Label" parent="MainMenu/VBoxContainer/Resume"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0.109804, 0.254902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Resume"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGame" type="TextureButton" parent="MainMenu/VBoxContainer"]
+margin_top = 91.0
+margin_right = 208.0
+margin_bottom = 123.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewGameLabel" type="Label" parent="MainMenu/VBoxContainer/NewGame"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0.109804, 0.254902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "New Game"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Instructions" type="TextureButton" parent="MainMenu/VBoxContainer"]
+margin_top = 182.0
+margin_right = 208.0
+margin_bottom = 214.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstructionsLabel" type="Label" parent="MainMenu/VBoxContainer/Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0.109804, 0.254902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Instructions"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="About" type="TextureButton" parent="MainMenu/VBoxContainer"]
+margin_top = 273.0
+margin_right = 208.0
+margin_bottom = 305.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AboutLabel" type="Label" parent="MainMenu/VBoxContainer/About"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0.109804, 0.254902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "About"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="MainMenu/VBoxContainer"]
+margin_top = 364.0
+margin_right = 208.0
+margin_bottom = 396.0
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+
+[node name="QuitLabel" type="Label" parent="MainMenu/VBoxContainer/Quit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0.109804, 0.254902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay2" type="ColorRect" parent="."]
+visible = false
+margin_left = 87.0
+margin_top = 168.0
+margin_right = 394.0
+margin_bottom = 663.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AreYouSure" type="Label" parent="BlackOverlay2"]
+margin_left = 30.1606
+margin_top = 9.52441
+margin_right = 277.161
+margin_bottom = 75.5244
+text = "Are you sure you want to start a new game? All progress will be lost."
+align = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BlackOverlay2"]
+margin_left = 8.0
+margin_top = 63.0
+margin_right = 308.0
+margin_bottom = 111.0
+custom_constants/separation = 51
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="No" type="TextureButton" parent="BlackOverlay2/HBoxContainer"]
+margin_right = 124.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="BlackOverlay2/HBoxContainer/No"]
+margin_left = 26.9858
+margin_top = 12.6992
+margin_right = 97.9858
+margin_bottom = 53.6992
+custom_colors/font_color = Color( 0, 0.109804, 0.254902, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "No"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Yes" type="TextureButton" parent="BlackOverlay2/HBoxContainer"]
+margin_left = 175.0
+margin_right = 299.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="BlackOverlay2/HBoxContainer/Yes"]
+margin_left = 9.52435
+margin_top = 11.1118
+margin_right = 109.524
+margin_bottom = 52.1118
+custom_colors/font_color = Color( 0, 0.109804, 0.254902, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Yes"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 483.0
+margin_bottom = 800.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_up" from="MainMenu/VBoxContainer/Resume" to="MainMenu" method="_on_Resume_button_up"]
+[connection signal="button_up" from="MainMenu/VBoxContainer/NewGame" to="MainMenu" method="_on_NewGame_button_up"]
+[connection signal="button_up" from="MainMenu/VBoxContainer/Instructions" to="MainMenu" method="_on_Instructions_button_up"]
+[connection signal="button_up" from="MainMenu/VBoxContainer/About" to="MainMenu" method="_on_About_button_up"]
+[connection signal="button_up" from="MainMenu/VBoxContainer/Quit" to="MainMenu" method="_on_Quit_button_up"]
+[connection signal="button_up" from="BlackOverlay2/HBoxContainer/No" to="MainMenu" method="_on_No_button_up"]
+[connection signal="button_up" from="BlackOverlay2/HBoxContainer/Yes" to="MainMenu" method="_on_Yes_button_up"]

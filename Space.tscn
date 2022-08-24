@@ -1,0 +1,389 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Space.gd" type="Script" id=2]
+[ext_resource path="res://Player.gd" type="Script" id=3]
+[ext_resource path="res://Assets/redlight.png" type="Texture" id=4]
+[ext_resource path="res://Interface/Pause.gd" type="Script" id=5]
+[ext_resource path="res://Assets/ButtonSelected.png" type="Texture" id=6]
+[ext_resource path="res://Assets/ButtonPressed.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Button.png" type="Texture" id=8]
+[ext_resource path="res://analog/analog.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/WeaponButton.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Laser.png" type="Texture" id=11]
+[ext_resource path="res://Assets/WeaponButtonPressed.png" type="Texture" id=12]
+[ext_resource path="res://Font/slkscreb.ttf" type="DynamicFontData" id=13]
+[ext_resource path="res://Assets/buttonup.png" type="Texture" id=14]
+[ext_resource path="res://HealthBar.gd" type="Script" id=15]
+[ext_resource path="res://Assets/levelmeterunder.png" type="Texture" id=16]
+[ext_resource path="res://Assets/levelmeterborder.png" type="Texture" id=17]
+[ext_resource path="res://Assets/levelmeter.png" type="Texture" id=18]
+[ext_resource path="res://Assets/bomb.png" type="Texture" id=19]
+[ext_resource path="res://SwipeDetector.gd" type="Script" id=20]
+[ext_resource path="res://Sound/Bomb.wav" type="AudioStream" id=21]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 18.0564, 414.478 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 454.899, 16.2552 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://Font/slkscrb.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 13 )
+
+[node name="Space" type="Node2D" groups=[
+"bosses",
+"mobs",
+"persist",
+"projectiles",
+]]
+script = ExtResource( 2 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 267.946, 586.98 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Ship" parent="Player" instance=ExtResource( 1 )]
+position = Vector2( -30.6388, -10.4708 )
+scale = Vector2( 1.00069, 1.00069 )
+script = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+position = Vector2( -31.1013, -10.5653 )
+scale = Vector2( 0.512922, 0.471759 )
+polygon = PoolVector2Array( 0.142822, 30.8089, 23.9008, 28.8588, 24.0077, -8.25873, 12.8708, -8.25873, 4.03192, -28.2345, -0.0339355, -32.8307, -4.63013, -27.7042, -13.9993, -8.08197, -24.4291, -8.08197, -24.2523, 29.218 )
+
+[node name="RightCannon" type="Position2D" parent="Player"]
+position = Vector2( -21.0435, -21.5424 )
+
+[node name="LeftCannon" type="Position2D" parent="Player"]
+position = Vector2( -41.0389, -21.5423 )
+
+[node name="Nose" type="Position2D" parent="Player"]
+position = Vector2( -30.7983, -37.4636 )
+
+[node name="RedLight" type="Sprite" parent="Player"]
+visible = false
+position = Vector2( -31.0321, -17.2719 )
+texture = ExtResource( 4 )
+
+[node name="Bomb" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2( -267.946, -586.98 )
+stream = ExtResource( 21 )
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2( -14.1253, 407.292 )
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2( 491.94, 397.967 )
+shape = SubResource( 1 )
+
+[node name="BottomWall" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomWall"]
+position = Vector2( 249.541, 663.046 )
+shape = SubResource( 2 )
+
+[node name="TopWall" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopWall"]
+position = Vector2( 297.711, -12.7551 )
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( -286.784, 5.96243 )
+z_index = -999
+color = Color( 0, 0, 0, 1 )
+polygon = PoolVector2Array( 162.876, -15.1097, 149.533, 842.531, 1083.42, 839.485, 1081.48, -21.3396 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Pause" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_left = -98.0025
+margin_top = 309.294
+margin_right = -58.0025
+margin_bottom = 349.294
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BlackOverlay" type="ColorRect" parent="Pause"]
+margin_left = 206.0
+margin_top = 44.0
+margin_right = 457.0
+margin_bottom = 154.0
+color = Color( 0.592157, 0.592157, 0.592157, 0.313726 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause"]
+margin_left = 227.0
+margin_top = 64.0
+margin_right = 435.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="TextureButton" parent="Pause/VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 32.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Pause/VBoxContainer/Resume"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.109804, 0.254902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Resume"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="TextureButton" parent="Pause/VBoxContainer"]
+margin_top = 36.0
+margin_right = 208.0
+margin_bottom = 68.0
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 6 )
+
+[node name="Label2" type="Label" parent="Pause/VBoxContainer/Quit"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0.109804, 0.254902, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "Quit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Canvas" type="CanvasLayer" parent="."]
+layer = 14
+
+[node name="Sidebar" type="VBoxContainer" parent="Canvas"]
+visible = false
+margin_left = 5.85291
+margin_top = 7.12726
+margin_right = 134.853
+margin_bottom = 74.1273
+custom_constants/separation = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceCoin" type="Label" parent="Canvas/Sidebar"]
+margin_right = 129.0
+margin_bottom = 14.0
+text = "$0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Experience" type="Label" parent="Canvas/Sidebar"]
+margin_top = 15.0
+margin_right = 129.0
+margin_bottom = 29.0
+text = "Experience:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level" type="Label" parent="Canvas/Sidebar"]
+margin_top = 30.0
+margin_right = 129.0
+margin_bottom = 44.0
+text = "Level: 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DebugLabel" type="Label" parent="Canvas/Sidebar"]
+margin_top = 45.0
+margin_right = 129.0
+margin_bottom = 59.0
+custom_colors/font_color = Color( 1, 0.243137, 0.243137, 1 )
+text = "Debug Label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_left = -8.0
+margin_top = 649.0
+margin_right = 487.0
+margin_bottom = 816.0
+color = Color( 0.0392157, 0.0392157, 0.0392157, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="AreaAnalogLeft" type="Control" parent="UI"]
+margin_left = 1.74008
+margin_top = 568.0
+margin_right = 229.74
+margin_bottom = 798.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnalogLeft" parent="UI/AreaAnalogLeft" instance=ExtResource( 9 )]
+position = Vector2( 79.0443, 156.407 )
+listenerNodePath = "/root/Space/Player"
+
+[node name="Weapons" type="CanvasLayer" parent="."]
+
+[node name="Weapon1" type="TextureButton" parent="Weapons"]
+margin_left = 211.92
+margin_top = 691.811
+margin_right = 275.92
+margin_bottom = 759.811
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Weapons/Weapon1"]
+position = Vector2( 31.3687, 30.3676 )
+texture = ExtResource( 11 )
+
+[node name="Completion" type="CanvasLayer" parent="."]
+
+[node name="Message" type="Label" parent="Completion"]
+margin_left = 18.0
+margin_top = 238.0
+margin_right = 466.0
+margin_bottom = 409.0
+custom_fonts/font = SubResource( 5 )
+text = "Completion Text"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumOfMissiles" type="CanvasLayer" parent="."]
+
+[node name="Missiles" type="Label" parent="NumOfMissiles"]
+visible = false
+margin_left = 233.0
+margin_top = 668.0
+margin_right = 254.0
+margin_bottom = 682.0
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NumOfBombs" type="CanvasLayer" parent="."]
+
+[node name="bomb" type="Sprite" parent="NumOfBombs"]
+position = Vector2( 305.598, 734.96 )
+texture = ExtResource( 19 )
+
+[node name="Bombs" type="Label" parent="NumOfBombs"]
+margin_left = 295.07
+margin_top = 698.034
+margin_right = 316.07
+margin_bottom = 712.034
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BombBlast" type="ColorRect" parent="."]
+visible = false
+margin_right = 478.0
+margin_bottom = 647.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="ButtonLayer"]
+position = Vector2( 377.452, 721.934 )
+texture = ExtResource( 14 )
+
+[node name="Hull" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="TextureProgress" parent="Hull"]
+margin_left = 180.598
+margin_top = 692.087
+margin_right = 220.598
+margin_bottom = 756.087
+max_value = 1.0
+texture_under = ExtResource( 16 )
+texture_over = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+fill_mode = 3
+tint_progress = Color( 0, 1, 0.133333, 1 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SwipeDetector" type="Timer" parent="."]
+one_shot = true
+script = ExtResource( 20 )
+
+[node name="BossPosition" type="Position2D" parent="."]
+position = Vector2( 233.106, -74.1028 )
+[connection signal="pressed" from="Pause/VBoxContainer/Resume" to="Pause" method="_on_Resume_pressed"]
+[connection signal="pressed" from="Pause/VBoxContainer/Quit" to="Pause" method="_on_Quit_pressed"]
+[connection signal="button_down" from="Weapons/Weapon1" to="Player" method="_on_Weapon1_button_down"]
+[connection signal="swiped" from="SwipeDetector" to="Player" method="_on_SwipeDetector_swiped"]

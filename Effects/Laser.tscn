@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sound/SmallLaser.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Laser.png" type="Texture" id=2]
+[ext_resource path="res://Effects/Fireball.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 1.61118
+height = 8.91898
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Laser" type="Area2D" parent="."]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Laser"]
+position = Vector2( 1.66893e-06, 0.0787485 )
+scale = Vector2( 0.704706, 0.704706 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser"]
+position = Vector2( -0.0787487, 0.0787449 )
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Laser"]
+position = Vector2( -0.15749, 0.393726 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sound" type="AudioStreamPlayer" parent="Laser"]
+stream = ExtResource( 1 )
+volume_db = -30.0
+[connection signal="area_entered" from="Laser" to="Laser" method="_on_Fireball_area_entered"]
+[connection signal="screen_exited" from="Laser/VisibilityNotifier2D" to="Laser" method="_on_VisibilityNotifier2D_screen_exited"]

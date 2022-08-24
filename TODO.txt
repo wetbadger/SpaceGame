@@ -1,0 +1,46 @@
+FEATURES:
+
+✓ Main Menu
+✓ Hangar
+Store
+Upgrades
+  get art
+✓ Experience and Leveling
+✓ Save exp and money to file
+✓ Secondary Weapon
+✓ Explosions
+✓ Sound Effects
+Rate of Fire
+Health
+FireButton
+
+✓ Bombs
+✓ Lasers
+Phase Cannon
+Machine Gun
+✓ Fireball
+✓ Rockets
+✓ Missiles
+Shield
+
+✓ Formation Enemies
+Shooting Enemies
+Ground/Platform Enemies
+Bosses
+Shield Enemies
+Asteroids
+
+UI
+  ✓ FireButton
+  Fireball Charge
+  ✓ Hull Strength
+  ✓ Bombs Number
+
+BUG:
+
+✓ Game crashes on collision with left over bodies from last round
+game sometimes returns to hangar after ?
+✓ game crashes if pause while dead
+✓ fix saving on mobile
+fix memory leak
+can't select weapon if finger at index 0 is holding joystick
