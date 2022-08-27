@@ -1,0 +1,54 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Ship2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/bluelight.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ship2fireball.png" type="Texture" id=3]
+[ext_resource path="res://Assets/ship2forcefield.png" type="Texture" id=4]
+[ext_resource path="res://Ship/Gunner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Ship2engine.png" type="Texture" id=6]
+[ext_resource path="res://FireballCannons.gd" type="Script" id=7]
+
+[node name="Ship" type="Sprite"]
+position = Vector2( 0, -4 )
+texture = ExtResource( 1 )
+
+[node name="LeftEngine" type="Sprite" parent="."]
+visible = false
+position = Vector2( -3.5, 10 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="RightEngine" type="Sprite" parent="."]
+visible = false
+position = Vector2( 3.483, 10 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="FireballCannons" type="Area2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="FireballCannons"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FireballCannons"]
+polygon = PoolVector2Array( -9, -5, -8, -5, -8, -4, -6, -4, -6, -6, -4, -6, -4, 2, -6, 2, -6, 0, -8, 0, -8, 1, -9, 1, -9, 2, -11, 2, -11, -1, -12, -1, -12, -4, -11, -4, -11, -6, -9, -6 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FireballCannons"]
+polygon = PoolVector2Array( 6, -4, 8, -4, 8, -5, 9, -5, 9, -6, 11, -6, 11, -4, 12, -4, 12, -1, 11, -1, 11, 2, 9, 2, 9, 1, 8, 1, 8, 0, 6, 0, 6, 2, 4, 2, 4, -6, 6, -6 )
+
+[node name="BigEngine" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 6 )
+
+[node name="Forcefield2" type="Area2D" parent="."]
+visible = false
+
+[node name="Forcefield" type="Sprite" parent="Forcefield2"]
+texture = ExtResource( 4 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Forcefield2"]
+polygon = PoolVector2Array( 3.1, -19.1, 6.1, -19.1, 6.1, -18.1, 8.1, -18.1, 8.1, -17.1, 9.1, -17.1, 9.1, -16.1, 10.1, -16.1, 10.1, -15.1, 11.1, -15.1, 11.1, -14.1, 12.1, -14.1, 12.1, -13.1, 13.1, -13.1, 13.1, -12.1, 14.1, -12.1, 14.1, -10.1, 15.1, -10.1, 15.1, -8.1, 16.1, -8.1, 16.1, -5.1, 17.1, -5.1, 17.1, 3.1, 16.1, 3.1, 16.1, 6.1, 15.1, 6.1, 15.1, 8.1, 14.1, 8.1, 14.1, 10.1, 13.1, 10.1, 13.1, 11.1, 12.1, 11.1, 12.1, 12.1, 11.1, 12.1, 11.1, 13.1, 10.1, 13.1, 10.1, 14.1, 9.1, 14.1, 9.1, 15.1, 8.1, 15.1, 8.1, 16.1, 6.1, 16.1, 6.1, 17.1, 3.1, 17.1, 3.1, 18.1, -3.1, 18.1, -3.1, 17.1, -6.1, 17.1, -6.1, 16.1, -8.1, 16.1, -8.1, 15.1, -9.1, 15.1, -9.1, 14.1, -10.1, 14.1, -10.1, 13.1, -11.1, 13.1, -11.1, 12.1, -12.1, 12.1, -12.1, 11.1, -13.1, 11.1, -13.1, 10.1, -14.1, 10.1, -14.1, 8.1, -15.1, 8.1, -15.1, 6.1, -16.1, 6.1, -16.1, 3.1, -17.1, 3.1, -17.1, -5.1, -16.1, -5.1, -16.1, -8.1, -15.1, -8.1, -15.1, -10.1, -14.1, -10.1, -14.1, -12.1, -13.1, -12.1, -13.1, -13.1, -12.1, -13.1, -12.1, -14.1, -11.1, -14.1, -11.1, -15.1, -10.1, -15.1, -10.1, -16.1, -9.1, -16.1, -9.1, -17.1, -8.1, -17.1, -8.1, -18.1, -6.1, -18.1, -6.1, -19.1, -3.1, -19.1, -3.1, -20.1, 3.1, -20.1 )
+
+[node name="Gunner" parent="." instance=ExtResource( 5 )]
+
+[connection signal="area_entered" from="FireballCannons" to="FireballCannons" method="_on_FireballCannons_area_entered"]

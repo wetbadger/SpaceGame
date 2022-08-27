@@ -8,3 +8,8 @@ random choice
 random innacuracy
 random inaccuracy and random choice
 target seeking
+
+Structure:
+    Classes:
+        Enemies
+        Projectiles

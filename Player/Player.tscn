@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Ship.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sound/Bomb.wav" type="AudioStream" id=3]
 [ext_resource path="res://Assets/redlight.png" type="Texture" id=4]
 

@@ -12,10 +12,10 @@ const FLAMEBLAST_SCENE = preload("Effects/FlameBlast.tscn")
 const BUTTON_DOWN = preload("../Assets/buttondown.png")
 const BUTTON_UP = preload("../Assets/buttonup.png")
 onready var debugLabel = get_parent().get_node("Canvas/Sidebar/DebugLabel")
-onready var missiles = get_parent().get_node("NumOfMissiles/Missiles")
+onready var missiles = get_parent().get_node("UI/Missiles")
 onready var bombBlast = get_parent().get_node("BombBlast")
-onready var fireButton = get_parent().get_node("ButtonLayer/Sprite")
-onready var num_of_bombs = get_parent().get_node("NumOfBombs/Bombs")
+onready var fireButton = get_parent().get_node("UI/FireButton")
+onready var num_of_bombs = get_parent().get_node("UI/Bombs")
 var fireballTex = preload("res://Assets/fireball.png")
 var laserTex = preload("res://Assets/Laser.png")
 var missileTex = preload("res://Assets/Missile.png")
@@ -53,9 +53,9 @@ var finger1Shooting = false
 var finger2Shooting = false
 
 var weapon = global.weapons[global.selectedWeapon]
-onready var weaponButton = get_parent().get_node("Weapons/Weapon1")
+onready var weaponButton = get_parent().get_node("UI/Weapon1")
 
-onready var bullet_sprite = get_node("../Weapons/Weapon1/Sprite")
+onready var bullet_sprite = get_node("../UI/Weapon1/Sprite")
 
 var nearest_mob1 = null
 var nearest_mob2 = null

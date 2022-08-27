@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Player2.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Space.gd" type="Script" id=2]
 [ext_resource path="res://Interface/Pause.gd" type="Script" id=5]
 [ext_resource path="res://Assets/ButtonSelected.png" type="Texture" id=6]
@@ -167,7 +167,6 @@ __meta__ = {
 layer = 14
 
 [node name="Sidebar" type="VBoxContainer" parent="Canvas"]
-visible = false
 margin_left = 5.85291
 margin_top = 7.12726
 margin_right = 134.853
@@ -214,9 +213,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="UI"]
 margin_left = -8.0
 margin_top = 649.0
 margin_right = 487.0
@@ -227,55 +226,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UI" type="CanvasLayer" parent="."]
-
 [node name="AreaAnalogLeft" type="Control" parent="UI"]
 margin_left = 1.74008
 margin_top = 568.0
 margin_right = 229.74
 margin_bottom = 798.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AnalogLeft" parent="UI/AreaAnalogLeft" instance=ExtResource( 9 )]
 position = Vector2( 79.0443, 156.407 )
 listenerNodePath = "/root/Space/Player"
 
-[node name="Weapons" type="CanvasLayer" parent="."]
-
-[node name="Weapon1" type="TextureButton" parent="Weapons"]
+[node name="Weapon1" type="TextureButton" parent="UI"]
 margin_left = 211.92
 margin_top = 691.811
 margin_right = 275.92
 margin_bottom = 759.811
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 12 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Sprite" type="Sprite" parent="Weapons/Weapon1"]
+[node name="Sprite" type="Sprite" parent="UI/Weapon1"]
 position = Vector2( 31.3687, 30.3676 )
 texture = ExtResource( 11 )
 
-[node name="Completion" type="CanvasLayer" parent="."]
-
-[node name="Message" type="Label" parent="Completion"]
-margin_left = 18.0
-margin_top = 238.0
-margin_right = 466.0
-margin_bottom = 409.0
-custom_fonts/font = SubResource( 5 )
-text = "Completion Text"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NumOfMissiles" type="CanvasLayer" parent="."]
-
-[node name="Missiles" type="Label" parent="NumOfMissiles"]
+[node name="Missiles" type="Label" parent="UI"]
 visible = false
 margin_left = 233.0
 margin_top = 668.0
@@ -287,40 +260,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="NumOfBombs" type="CanvasLayer" parent="."]
-
-[node name="bomb" type="Sprite" parent="NumOfBombs"]
+[node name="bomb" type="Sprite" parent="UI"]
 position = Vector2( 305.598, 734.96 )
 texture = ExtResource( 19 )
 
-[node name="Bombs" type="Label" parent="NumOfBombs"]
+[node name="Bombs" type="Label" parent="UI"]
 margin_left = 295.07
 margin_top = 698.034
 margin_right = 316.07
 margin_bottom = 712.034
 text = "0"
 align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="BombBlast" type="ColorRect" parent="."]
-visible = false
-margin_right = 478.0
-margin_bottom = 647.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ButtonLayer" type="CanvasLayer" parent="."]
-
-[node name="Sprite" type="Sprite" parent="ButtonLayer"]
+[node name="FireButton" type="Sprite" parent="UI"]
 position = Vector2( 377.452, 721.934 )
 texture = ExtResource( 14 )
 
-[node name="Hull" type="CanvasLayer" parent="."]
-
-[node name="HealthBar" type="TextureProgress" parent="Hull"]
+[node name="HealthBar" type="TextureProgress" parent="UI"]
 margin_left = 180.598
 margin_top = 692.087
 margin_right = 220.598
@@ -332,6 +288,22 @@ texture_progress = ExtResource( 18 )
 fill_mode = 3
 tint_progress = Color( 0, 1, 0.133333, 1 )
 script = ExtResource( 15 )
+
+[node name="Completion" type="CanvasLayer" parent="."]
+
+[node name="Message" type="Label" parent="Completion"]
+margin_left = 18.0
+margin_top = 238.0
+margin_right = 466.0
+margin_bottom = 409.0
+custom_fonts/font = SubResource( 5 )
+text = "Completion Text"
+align = 1
+
+[node name="BombBlast" type="ColorRect" parent="."]
+visible = false
+margin_right = 478.0
+margin_bottom = 647.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
