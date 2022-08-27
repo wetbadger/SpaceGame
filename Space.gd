@@ -69,13 +69,6 @@ func _ready():
 	ship_left_right = rng.randi_range(0, 1)
 	rng.randomize()
 	ship_count = rng.randi_range(5, 20)
-	
-	if get_node("/root/Hangar") != null:
-		get_node("/root/Hangar").free()
-	if get_node("/root/Shop") != null:
-		get_node("/root/Shop").free()
-	if get_node("/root/Upgrades") != null:
-		get_node("/root/Upgrades").free()
 		
 	completion = get_node("../Space/Completion/Message")
 	completion.visible = false

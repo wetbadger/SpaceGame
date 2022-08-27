@@ -249,8 +249,12 @@ func _physics_process(delta):
 	if input_vector != Vector2.ZERO:
 		velocity += input_vector*ACCELERATION*delta
 		velocity = velocity.clamped(MAX_SPEED * delta)
+		get_node("Ship/LeftEngine").visible = true
+		get_node("Ship/RightEngine").visible = true
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		get_node("Ship/LeftEngine").visible = false
+		get_node("Ship/RightEngine").visible = false
 	
 	#print(analog_velocity)
 	velocity+= analog_velocity * 3 #for some reason analog velocity needs to be higher

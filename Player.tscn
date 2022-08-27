@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Assets/Ship.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Ship2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/bluelight.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ship2fireball.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Ship2gunner.png" type="Texture" id=4]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Sprite
@@ -29,3 +32,30 @@ script/source = "extends Sprite
 position = Vector2( 0, -4 )
 texture = ExtResource( 1 )
 script = SubResource( 1 )
+
+[node name="LeftEngine" type="Sprite" parent="."]
+visible = false
+position = Vector2( -3.5, 10 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="RightEngine" type="Sprite" parent="."]
+visible = false
+position = Vector2( 3.483, 10 )
+z_index = -1
+texture = ExtResource( 2 )
+
+[node name="FireballCannons" type="Area2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="FireballCannons"]
+texture = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FireballCannons"]
+polygon = PoolVector2Array( -9, -5, -8, -5, -8, -4, -6, -4, -6, -6, -4, -6, -4, 2, -6, 2, -6, 0, -8, 0, -8, 1, -9, 1, -9, 2, -11, 2, -11, -1, -12, -1, -12, -4, -11, -4, -11, -6, -9, -6 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FireballCannons"]
+polygon = PoolVector2Array( 6, -4, 8, -4, 8, -5, 9, -5, 9, -6, 11, -6, 11, -4, 12, -4, 12, -1, 11, -1, 11, 2, 9, 2, 9, 1, 8, 1, 8, 0, 6, 0, 6, 2, 4, 2, 4, -6, 6, -6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 6 )
+texture = ExtResource( 4 )

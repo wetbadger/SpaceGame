@@ -1,0 +1,10 @@
+types of enemy projectiles:
+
+straight
+towards target
+towards where target will be
+between target and where target will be
+random choice
+random innacuracy
+random inaccuracy and random choice
+target seeking

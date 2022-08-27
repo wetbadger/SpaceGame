@@ -14,11 +14,6 @@ func _ready():
 	var bosses = get_tree().get_nodes_in_group("bosses")
 	for boss in bosses:
 		boss.queue_free()
-	if get_node("/root/Space") != null:
-		get_node("/root/Space").free()
-		print("Space freed")
-	if get_node("/root/Main") != null:
-		get_node("/root/Main").free()
 	global.current_hull = global.hull
 	save_game()
 	spacecoin.set_text("SpaceCoin: $"+String(global.spacecoin))
@@ -32,13 +27,13 @@ func _ready():
 
 
 func _on_Button_button_down():
-	queue_free()
-	get_tree().change_scene("res://Space.tscn") # Replace with function body.
+	if get_tree().change_scene("res://Space.tscn") != OK:
+		print("There was an error")
 
 
 func _on_Launch2_button_up():
-	queue_free()
-	get_tree().change_scene("res://Space.tscn") # Replace with function body.
+	if get_tree().change_scene("res://Space.tscn") != OK:
+		print("There was an error")
 
 
 func save_game():
@@ -67,17 +62,15 @@ func save():
 
 
 func _on_Shop_button_up():
-	queue_free()
-	call_deferred("free")
-	get_tree().change_scene("res://Shop.tscn") # Replace with function body.
+	if get_tree().change_scene("res://Shop.tscn") != OK:
+		print("There was an error")
 
 
 func _on_Upgrades_button_up():
-	queue_free()
-	call_deferred("free")
-	get_tree().change_scene("res://Upgrades.tscn") # Replace with function body.
+	if get_tree().change_scene("res://Upgrades.tscn") != OK:
+		print("There was an error")
 
 
 func _on_TextureButton_button_up():
-	call_deferred("free")
-	get_tree().change_scene("res://MainMenu.tscn") # Replace with function body.
+	if get_tree().change_scene("res://MainMenu.tscn") != OK:
+		print("There was an error")

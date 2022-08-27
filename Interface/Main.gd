@@ -47,7 +47,8 @@ func _on_Yes_button_up():
 	save_file.store_line(str(0))
 	print("New Game!")
 	save_file.close()
-	get_tree().change_scene("res://Hangar.tscn") # Replace with function body.
+	if get_tree().change_scene("res://Hangar.tscn") != OK:
+		print("There was an error")
 
 
 func _on_No_button_up():
@@ -55,7 +56,8 @@ func _on_No_button_up():
 
 
 func _on_Instructions_button_up():
-	get_tree().change_scene("res://Instructions.tscn") # Replace with function body.
+	if get_tree().change_scene("res://Instructions.tscn") != OK:
+		print("There was an error")
 
 
 func _on_NewGame_button_up():
@@ -69,12 +71,14 @@ func _on_NewGame_button_up():
 		save_file.store_line(str(0))
 		print("New Game!")
 		save_file.close()
-		get_tree().change_scene("res://Hangar.tscn") # Replace with function body.
+		if get_tree().change_scene("res://Hangar.tscn") != OK:
+			print("There was an error")
 
 
 func _on_Resume_button_up():
 	load_game()
-	get_tree().change_scene("res://Hangar.tscn") # Replace with function body.
+	if get_tree().change_scene("res://Hangar.tscn") != OK:
+		print("There was an error")
 
 
 func _on_Quit_button_up():
@@ -82,4 +86,5 @@ func _on_Quit_button_up():
 
 
 func _on_About_button_up():
-	get_tree().change_scene("res://About.tscn") # Replace with function body.
+	if get_tree().change_scene("res://About.tscn") != OK:
+		print("There was an error")

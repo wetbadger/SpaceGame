@@ -111,7 +111,7 @@ func _on_UFO_area_entered(area):
 	if health <= 0 and player != null:
 		var coords = get_position() 
 
-		queue_free()
+		
 		var explosion = EXPLOSION.instance()
 		get_parent().add_child(explosion)
 		explosion.get_child(0).emitting = true
@@ -123,4 +123,5 @@ func _on_UFO_area_entered(area):
 		spacecoinLabel.set_text("$"+String(global.spacecoin))
 		experienceLabel.set_text("Experience: "+String(global.experience))
 		levelLabel.set_text("Level:" + String(global.level))
+		queue_free()
 		
